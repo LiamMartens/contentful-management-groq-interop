@@ -1,5 +1,3 @@
-import Case from 'case';
-
 // @README the typing of this is very loose because the Contentful schema can be very loose
 export const transformLinksToReferences = <O extends Record<string, any>>(
   obj: O
@@ -19,8 +17,8 @@ export const transformLinksToReferences = <O extends Record<string, any>>(
 
     return Object.fromEntries(
       Object.entries(obj).map(([key, value]) => {
-        // @README GROQ compliant field names can not contain dashes
-        return [Case.snake(key), transformLinksToReferences(value)]
+        // @README GROQ compliant field names can only contain alphanumeric characters and underscores
+        return [key.replace(/[^a-zA-Z0-9_]/g, '_'), transformLinksToReferences(value)]
       })
     ) as O
   }
