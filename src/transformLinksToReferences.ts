@@ -3,7 +3,13 @@ export const transformLinksToReferences = <O extends Record<string, any>>(
   obj: O
 ): O => {
   if (obj && typeof obj === 'object') {
-    if (obj.type === 'Link' && obj.id) {
+    if ('sys' in obj && obj.sys.type === 'Link' && obj.sys.id) {
+      return {
+        ...obj,
+        _type: 'reference',
+        _ref: obj.id,
+      }
+    } else if (obj.type === 'Link' && obj.id) {
       return {
         ...obj,
         _type: 'reference',
