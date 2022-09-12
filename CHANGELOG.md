@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.0.7
+- Fix missing ID from references
+
+## 0.0.6
+- Hoist links from `sys` to parent
+
 ## 0.0.3
 - Fix `_type` field
 
