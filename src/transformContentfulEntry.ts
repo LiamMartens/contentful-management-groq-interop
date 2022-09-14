@@ -1,4 +1,5 @@
 import * as contentful from 'contentful-management';
+import Case from 'case';
 import { transformLinksToReferences } from './transformLinksToReferences';
 
 type GroqSysFields = {
@@ -13,7 +14,7 @@ export const transformContentfulEntry = <Entry extends contentful.EntryProps>(
 ): Entry & GroqSysFields => {
   const obj = {
     _id: entry.sys.id,
-    _type: entry.sys.contentType?.sys.id ?? entry.sys.type,
+    _type: entry.sys.contentType?.sys.id ?? Case.camel(entry.sys.type),
     _updatedAt: entry.sys.updatedAt,
     _createdAt: entry.sys.createdAt,
     ...entry,

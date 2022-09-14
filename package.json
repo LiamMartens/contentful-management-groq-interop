@@ -1,11 +1,13 @@
 {
   "name": "contentful-management-groq-interop",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
   "types": "lib/types",
   "license": "MIT",
-  "files": ["lib"],
+  "files": [
+    "lib"
+  ],
   "devDependencies": {
     "@swc/cli": "^0.1.57",
     "@swc/core": "^1.2.247",
@@ -18,5 +20,8 @@
     "build:esm": "swc -C module.type=es6 -d ./lib/esm ./src",
     "build:cjs": "swc -C module.type=commonjs -d ./lib/cjs ./src",
     "build:types": "tsc -p ."
+  },
+  "dependencies": {
+    "case": "^1.6.3"
   }
 }
