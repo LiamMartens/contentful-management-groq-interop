@@ -16,7 +16,12 @@ export function splitIntoLocalizedDatasets(
         fields: Object.fromEntries(
           flush(Object.entries(entry.fields).map(([name, fieldValue]) => {
             const value = fieldValue[locale] ?? fieldValue[defaultLocale]
-            if (typeof value !== 'undefined' && value !== null) {
+            const canBeOmitted = (
+              typeof value === 'undefined'
+              || value === null
+              || value === ''
+            )
+            if (!canBeOmitted) {
               return [name, value]
             }
             return null
