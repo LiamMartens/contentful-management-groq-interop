@@ -1,6 +1,6 @@
 {
   "name": "contentful-management-groq-interop",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
   "types": "lib/types",
@@ -22,6 +22,7 @@
     "build:types": "tsc -p ."
   },
   "dependencies": {
-    "case": "^1.6.3"
+    "case": "^1.6.3",
+    "just-flush": "^2.2.1"
   }
 }

@@ -1,7 +1,8 @@
+import flush from 'just-flush'
 import contentful from 'contentful-management'
 
 export function splitIntoLocalizedDatasets(
-  locales: string[], 
+  locales: string[],
   entries: contentful.EntryProps[],
   defaultLocale: string
 ) {
@@ -13,10 +14,13 @@ export function splitIntoLocalizedDatasets(
       localized[locale].push({
         ...entry,
         fields: Object.fromEntries(
-          Object.entries(entry.fields).map(([name, localized]) => {
-            const value = localized[locale] ?? localized[defaultLocale]
-            return [name, value]
-          })
+          flush(Object.entries(entry.fields).map(([name, fieldValue]) => {
+            const value = fieldValue[locale] ?? fieldValue[defaultLocale]
+            if (typeof value !== 'undefined' && value !== null) {
+              return [name, value]
+            }
+            return null
+          }))
         ),
       })
     })
