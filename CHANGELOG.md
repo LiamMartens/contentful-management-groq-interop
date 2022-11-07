@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 0.0.11
+- Include custom sys field called `_publishedAt`
+
 ## 0.0.8
 - Camel case type
 
