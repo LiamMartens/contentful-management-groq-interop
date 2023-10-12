@@ -1,3 +1,3 @@
-export * from './transformContentfulEntry';
-export * from './transformLinksToReferences';
-export * from './splitIntoLocalizedDatasets';
+export * from './transformContentfulEntry.js';
+export * from './transformLinksToReferences.js';
+export * from './splitIntoLocalizedDatasets.js';

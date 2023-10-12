@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 0.1.0
+- Update dependencies and typings
+
 ## 0.0.11
 - Include custom sys field called `_publishedAt`
 
